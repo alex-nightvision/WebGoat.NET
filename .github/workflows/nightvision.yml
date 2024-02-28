@@ -6,7 +6,7 @@ on:
 
 env:
   NIGHTVISION_TOKEN: ${{ secrets.NIGHTVISION_TOKEN }}
-  NIGHTVISION_TARGET: http://localhost:8999
+  URL: http://localhost:8999
   NIGHTVISION_TARGET: webgoatnet
   NIGHTVISION_APP: webgoatnet
   NIGHTVISION_AUTH: webgoatnet
@@ -35,7 +35,7 @@ jobs:
       - name: (4) Start the app
         run: |
           docker-compose up -d; sleep 10
-          curl -k ${NIGHTVISION_TARGET}
+          curl -k ${URL}
 
       - name: (5) Scan the API
         run: |
